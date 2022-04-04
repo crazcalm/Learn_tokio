@@ -30,8 +30,12 @@ async fn main() {
         }
     });
 
-    tx1.send("data set 1".to_string()).unwrap();
-    tx2.send("data set 2".to_string()).unwrap();
+    tx1.send("tx1: Hello".to_string()).unwrap();
+    tx2.send("tx2: Hello".to_string()).unwrap();
+    tx1.send("tx1: World".to_string()).unwrap();
+    tx2.send("tx2: World".to_string()).unwrap();
+    tx1.send("tx1: Bye".to_string()).unwrap();
+    tx2.send("tx2: Bye".to_string()).unwrap();
 
     // Dropping tx so that the recievers will close.
     drop(tx1);
